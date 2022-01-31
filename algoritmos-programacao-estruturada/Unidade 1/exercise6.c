@@ -1,14 +1,7 @@
 #include <stdio.h>
 
-
-int main () {
-
-    char nomeCliente[30];
+float calcularImc (){
     float pesoCliente, alturaCliente, imcCliente; 
-
-
-    printf("Nome do cliente: \n");
-    scanf("%s", nomeCliente); 
 
     printf("Peso do cliente (em kg): \n");
     scanf("%f", &pesoCliente);
@@ -18,18 +11,30 @@ int main () {
 
     imcCliente = (pesoCliente / (alturaCliente * alturaCliente));
 
-    printf("O imc de %s é: %.1lf \n", nomeCliente, imcCliente); 
+    return imcCliente;
+}
 
-    if (imcCliente <= 18.5)
+int main () {
+
+    char nomeCliente[30];
+
+    printf("Nome do cliente: \n");
+    scanf("%s", nomeCliente); 
+
+    float imc = calcularImc(); 
+    printf("O imc de %s é: %.1lf \n", nomeCliente, imc); 
+
+    if (imc <= 18.5)
     {
-        printf("Você está abaixo o peso ideal\n");
-    } else if (imcCliente < 24.9)
+        printf("%s está abaixo do peso ideal\n", nomeCliente);
+    } else if (imc < 24.9)
     {
-        printf("Você está no peso ideal\n");
+        printf("%s está no peso ideal\n", nomeCliente);
     } else
     {
-        printf("Você está acima do peso\n"); 
+        printf("%s está acima do peso\n", nomeCliente); 
     }
 
 
 }
+
